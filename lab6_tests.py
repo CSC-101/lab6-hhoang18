@@ -62,20 +62,65 @@ class TestCases(unittest.TestCase):
         lab6.selection_sort(input)
         self.assertEqual(expected, input)
 
-
     # Part 1
+    def test_selection_sort_books_1(self):
+        input = [data.Book(["Suzanne Collins"], "The Hunger Games"),
+                 data.Book(["Rick Riordan"], "Percy Jackson")]
+        expected = [data.Book(["Rick Riordan"], "Percy Jackson"),
+                    data.Book(["Suzanne Collins"], "The Hunger Games")]
+        lab6.selection_sort_books(input)
+        self.assertEqual(expected, input)
 
+    def test_selection_sort_books_2(self):
+        input = [data.Book(["Ray Bradbury"], "Fahrenheit 451"),
+                 data.Book(["F. Scott Fitzgerald"], "The Great Gatsby")]
+        expected = [data.Book(["Ray Bradbury"], "Fahrenheit 451"),
+                    data.Book(["F. Scott Fitzgerald"], "The Great Gatsby")]
+        lab6.selection_sort_books(input)
+        self.assertEqual(expected, input)
 
     # Part 2
+    def test_swap_case_1(self):
+        letters = "HELLO"
+        expected = "hello"
+        result = lab6.swap_case(letters)
+        self.assertEqual(expected, result)
 
+    def test_swap_case_2(self):
+        letters = "ω"
+        expected = "Ω"
+        result = lab6.swap_case(letters)
+        self.assertEqual(expected, result)
 
     # Part 3
+    def test_str_translate_1(self):
+        string = "abcabc"
+        old = 'a'
+        new = 'x'
+        expected = "xbcxbc"
+        result = lab6.str_translate(string, old, new)
+        self.assertEqual(expected, result)
 
+    def test_str_translate_2(self):
+        string = "rain"
+        old = 'a'
+        new = 'e'
+        expected = "rein"
+        result = lab6.str_translate(string, old, new)
+        self.assertEqual(expected, result)
 
     # Part 4
+    def test_histogram_1(self):
+        input = "hello world hello"
+        expected = {"hello":2, "world":1}
+        result = lab6.histogram(input)
+        self.assertEqual(expected, result)
 
-
-
+    def test_histogram_2(self):
+        input = "one one one one"
+        expected = {"one": 4}
+        result = lab6.histogram(input)
+        self.assertEqual(expected, result)
 
 
 if __name__ == '__main__':
